@@ -1,0 +1,48 @@
+#
+# cnext - Modern "NonStandard" C library.
+#
+# Copyright (c) 2026-present Tanvir.
+# SPDX-License-Identifier: MPL-2.0
+#
+
+# .clang-format
+
+BasedOnStyle: LLVM
+
+# 6-space, spaces only
+IndentWidth: 6
+TabWidth: 6
+UseTab: Never
+ColumnLimit: 0
+
+# Braces / layout
+BreakBeforeBraces: Attach
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: None
+AlwaysBreakAfterReturnType: None
+MaxEmptyLinesToKeep: 1
+IndentCaseLabels: true
+NamespaceIndentation: None
+
+# Spacing
+SpaceBeforeParens: ControlStatements
+SpaceBeforeAssignmentOperators: true
+PointerAlignment: Right
+ReferenceAlignment: Right
+DerivePointerAlignment: false
+
+# Wrapping
+BinPackArguments: true
+BinPackParameters: true
+AllowAllArgumentsOnNextLine: true
+AllowAllParametersOfDeclarationOnNextLine: true
+PenaltyBreakBeforeFirstCallParameter: 19
+
+# Includes
+SortIncludes: CaseSensitive
+IncludeBlocks: Preserve
+
+# Comments
+ReflowComments: false
+CommentPragmas: '^ IWYU pragma:'
