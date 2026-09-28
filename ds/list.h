@@ -50,26 +50,15 @@ static inline bool cn_raw_reserve(void **data, size_t *cap,
 #define list_free(l) \
       (free((l)->data), (l)->data = NULL, (l)->size = (l)->cap = 0)
 
-#define list_push(l, v) ({                                           \
-      __typeof__(*(l)->data) _v = v;                                 \
-      bool _ok = true;                                               \
-      if ((l)->size + 1 > (l)->cap) {                                \
-            _ok = cn_raw_reserve((void **)&(l)->data, &(l)->cap,     \
-                                 sizeof(*(l)->data), (l)->size + 1); \
-      }                                                              \
-      if (_ok) {                                                     \
-            (l)->data[(l)->size++] = _v;                             \
-      }                                                              \
-      _ok;                                                           \
-})
+#define list_push(l, v)                                  \
+      (cn_raw_reserve((void **)&(l)->data, &(l)->cap,    \
+                      sizeof(*(l)->data), (l)->size + 1) \
+           ? ((l)->data[(l)->size++] = (v), true)        \
+           : false)
 
-#define list_get(l, i, out) ({      \
-      size_t _i = (i);              \
-      bool _ok = _i < (l)->size;    \
-      if (_ok) {                    \
-            *(out) = (l)->data[_i]; \
-      }                             \
-      _ok;                          \
-})
+#define list_get(l, i, out)                          \
+      ((size_t)(i) < (l)->size                       \
+           ? (*(out) = (l)->data[(size_t)(i)], true) \
+           : false)
 
 #endif // !CN_DS_LIST_H
