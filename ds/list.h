@@ -6,7 +6,7 @@
  */
 
 /*
- * ds/list.h - implimentation for cnlist.
+ * ds/list.h - implementation for cnlist.
  * cnlist is dynamically allocated array.
  */
 
@@ -50,10 +50,9 @@ static inline bool cn_raw_reserve(void **data, size_t *cap,
 #define list_free(l) \
       (free((l)->data), (l)->data = NULL, (l)->size = (l)->cap = 0)
 
-#define list_push(l, v)                                  \
-      (cn_raw_reserve((void **)&(l)->data, &(l)->cap,    \
-                      sizeof(*(l)->data), (l)->size + 1) \
-           ? ((l)->data[(l)->size++] = (v), true)        \
+#define list_push(l, v)                                                                  \
+      (cn_raw_reserve((void **)&(l)->data, &(l)->cap, sizeof(*(l)->data), (l)->size + 1) \
+           ? ((l)->data[(l)->size++] = (v), true)                                        \
            : false)
 
 #define list_get(l, i, out)                          \
