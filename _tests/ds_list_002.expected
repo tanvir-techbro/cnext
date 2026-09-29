@@ -1,0 +1,9 @@
+person: len=3
+person: ada 36
+person: bob 41
+person: cy 29
+person: get1=bob 41
+person: pop=cy 29 len=2
+person: oob=ok
+point: (3,4) len=2
+freed=1

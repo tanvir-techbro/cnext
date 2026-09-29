@@ -55,9 +55,18 @@ static inline bool cn_raw_reserve(void **data, size_t *cap,
            ? ((l)->data[(l)->size++] = (v), true)                                        \
            : false)
 
+// put the output in var
+// list_get(mylist, index, var)
 #define list_get(l, i, out)                          \
       ((size_t)(i) < (l)->size                       \
            ? (*(out) = (l)->data[(size_t)(i)], true) \
+           : false)
+
+// pop the output to var
+// list_pop(mylist, var)
+#define list_pop(l, out)                             \
+      ((l)->size > 0                                 \
+           ? (*(out) = (l)->data[--(l)->size], true) \
            : false)
 
 #endif // !CN_DS_LIST_H

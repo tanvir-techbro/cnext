@@ -1,7 +1,12 @@
-len=3
-10
-20
-30
-get1=20
-oob=ok
+int: len=2 get0=-5
+int: pop=42 len=1
+int: oob=ok
+u32: 4000000000
+i64: -9000000000
+float: 1.500000
+double: 3.250000
+char: len=3 abc
+str: len=2 get1=bar
+str: pop=bar len=1
+bool: 1 0
 freed=1
