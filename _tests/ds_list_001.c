@@ -59,8 +59,7 @@ int main(void) {
       list_push(&cs, 'a');
       list_push(&cs, 'b');
       list_push(&cs, 'c');
-      printf("char: len=%zu %c%c%c\n", cs.size, cs.data[0], cs.data[1],
-             cs.data[2]);
+      printf("char: len=%zu %c%c%c\n", cs.size, cs.data[0], cs.data[1], cs.data[2]);
       list_free(&cs);
 
       StrList ss = {0};

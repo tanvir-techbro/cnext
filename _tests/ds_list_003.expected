@@ -1,0 +1,22 @@
+empty=1 len=0 cap=0
+append len=4 cap=4: 1 2 3 4
+insert len=7 cap=8: 0 1 2 99 3 4 5
+insert oob=ok
+set oob=ok
+first=10
+last=5
+set len=7 cap=8: 10 1 2 99 3 4 5
+removed=99
+removed=10
+remove oob=ok
+remove len=5 cap=8: 1 2 3 4 5
+after drop len=4 last=4
+clear: len=0 cap=8 kept=1 empty=1
+drop empty=ok
+peek empty=ok
+pop empty=ok
+before shrink len=2 cap=8
+after shrink len=2 cap=2
+shrink empty: len=0 cap=0 null=1
+append0=ok len=0
+freed=1
